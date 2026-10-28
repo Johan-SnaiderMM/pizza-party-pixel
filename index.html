@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Vamos por pizza?</title>
+<meta name="theme-color" content="#00123a">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+  <section id="splash" class="screen splash">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="float" aria-hidden="true"></div>
+    <div class="splash-content">
+      <h1 class="logo">PIZZA</h1>
+      <button type="button" class="prompt" id="start"><span id="start-text">Presiona cualquier tecla para comenzar</span></button>
+    </div>
+  </section>
+
+  <section id="scene" class="screen scene" hidden>
+    <div class="stage" id="stage" role="img" aria-label="Animación: un Chevrolet Corsa verde llega a recoger a su invitada, que lo saluda desde el balcón del segundo piso, y se van juntos">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="luna"></div>
+
+      <svg class="casa" viewBox="0 0 200 200" shape-rendering="crispEdges" aria-hidden="true">
+        <rect x="0" y="0" width="200" height="22" fill="#006b28"/>
+        <rect x="0" y="22" width="200" height="82" fill="#f2e3b3"/>
+        <rect x="0" y="110" width="200" height="90" fill="#f2e3b3"/>
+        <rect x="14" y="40" width="34" height="42" fill="#12214a" stroke="#cdbd8a" stroke-width="3"/>
+        <rect x="152" y="40" width="34" height="42" fill="#12214a" stroke="#cdbd8a" stroke-width="3"/>
+        <rect x="64" y="26" width="72" height="66" fill="#ffdf00" stroke="#00123a" stroke-width="3"/>
+
+        <g class="ella" id="ella" transform="translate(0 6)">
+          <circle cx="100" cy="54" r="19" fill="#2a1608"/>
+          <circle cx="79" cy="56" r="10" fill="#2a1608"/>
+          <circle cx="81" cy="43" r="10" fill="#33190b"/>
+          <circle cx="91" cy="35" r="10" fill="#2a1608"/>
+          <circle cx="102" cy="32" r="10" fill="#33190b"/>
+          <circle cx="112" cy="36" r="10" fill="#2a1608"/>
+          <circle cx="120" cy="45" r="10" fill="#33190b"/>
+          <circle cx="122" cy="58" r="10" fill="#2a1608"/>
+          <circle cx="80" cy="70" r="9" fill="#33190b"/>
+          <circle cx="121" cy="71" r="9" fill="#33190b"/>
+          <circle cx="84" cy="81" r="8" fill="#2a1608"/>
+          <circle cx="117" cy="82" r="8" fill="#2a1608"/>
+          <circle cx="76" cy="62" r="8" fill="#2a1608"/>
+          <circle cx="124" cy="64" r="8" fill="#33190b"/>
+          <circle cx="78" cy="76" r="8" fill="#33190b"/>
+          <circle cx="123" cy="77" r="7" fill="#2a1608"/>
+          <rect x="96" y="72" width="8" height="10" fill="#b5764a"/>
+          <path d="M80 98 L80 82 Q100 74 120 82 L120 98 Z" fill="#d62828"/>
+          <path d="M91 79 Q100 89 109 79" fill="none" stroke="#e0a93b" stroke-width="1"/>
+          <ellipse cx="100" cy="60" rx="11" ry="13" fill="#b5764a"/>
+          <circle cx="88.5" cy="68" r="3" fill="none" stroke="#e0a93b" stroke-width="1.2"/>
+          <circle cx="111.5" cy="68" r="3" fill="none" stroke="#e0a93b" stroke-width="1.2"/>
+          <rect x="93" y="60" width="2" height="2" fill="#00123a"/>
+          <rect x="105" y="60" width="2" height="2" fill="#00123a"/>
+          <rect x="99" y="63" width="2" height="2" fill="#9a5f3a"/>
+          <rect x="97" y="67" width="6" height="2" fill="#7a3b22"/>
+          <circle cx="94" cy="61" r="5.5" fill="none" stroke="#e0a93b" stroke-width="1.2"/>
+          <circle cx="106" cy="61" r="5.5" fill="none" stroke="#e0a93b" stroke-width="1.2"/>
+          <rect x="99" y="60" width="2" height="1" fill="#e0a93b"/>
+          <circle cx="89" cy="47" r="5" fill="#2a1608"/>
+          <circle cx="95" cy="44" r="5" fill="#33190b"/>
+          <circle cx="101" cy="43" r="5" fill="#2a1608"/>
+          <circle cx="107" cy="44" r="5" fill="#33190b"/>
+          <circle cx="112" cy="47" r="5" fill="#2a1608"/>
+          <g class="brazo">
+            <rect x="118" y="52" width="7" height="32" rx="3" fill="#b5764a"/>
+            <circle cx="121.5" cy="50" r="5" fill="#b5764a"/>
+            <rect x="116" y="74" width="11" height="11" fill="#d62828"/>
+          </g>
+        </g>
+
+        <rect x="52" y="88" width="96" height="4" fill="#00123a"/>
+        <path d="M57 92v12M65 92v12M73 92v12M81 92v12M89 92v12M97 92v12M105 92v12M113 92v12M121 92v12M129 92v12M137 92v12M145 92v12" stroke="#00123a" stroke-width="2"/>
+        <rect x="50" y="104" width="100" height="6" fill="#a89a6a"/>
+
+        <rect x="14" y="130" width="52" height="40" fill="#12214a" stroke="#cdbd8a" stroke-width="3"/>
+        <rect x="134" y="130" width="52" height="40" fill="#12214a" stroke="#cdbd8a" stroke-width="3"/>
+        <path d="M40 130v40M14 150h52M160 130v40M134 150h52" stroke="#cdbd8a" stroke-width="2"/>
+        <rect x="82" y="128" width="40" height="72" fill="#006b28" stroke="#00123a" stroke-width="3"/>
+        <rect x="112" y="166" width="4" height="4" fill="#ffdf00"/>
+      </svg>
+
+      <div class="acera"></div>
+      <div class="road"></div>
+
+      <div class="corsa" id="corsa">
+        <svg viewBox="0 0 180 72" overflow="visible" shape-rendering="crispEdges" aria-hidden="true">
+          <polygon class="haz" points="172,42 280,14 280,70" fill="#ffdf00"/>
+          <path d="M8 56 L8 38 L16 36 L40 12 L104 12 L134 32 L166 35 Q174 37 174 44 L174 56 Z" fill="#009c3b"/>
+          <rect x="8" y="50" width="166" height="6" fill="#006b28"/>
+          <polygon points="22,34 41,16 54,16 54,34" fill="#12214a"/>
+          <polygon points="60,16 100,16 124,33 60,33" fill="#12214a"/>
+          <rect x="56" y="16" width="2" height="38" fill="#006b28"/>
+          <rect x="66" y="40" width="8" height="2" fill="#fffbe8"/>
+          <rect x="108" y="28" width="8" height="5" fill="#006b28"/>
+          <rect x="164" y="38" width="9" height="6" fill="#ffdf00"/>
+          <rect x="8" y="40" width="4" height="6" fill="#fffbe8"/>
+          <circle cx="38" cy="56" r="14" fill="#00123a"/>
+          <circle cx="140" cy="56" r="14" fill="#00123a"/>
+          <g class="spinner">
+            <circle cx="38" cy="56" r="11" fill="#0b0f1a" stroke="#fffbe8" stroke-width="1"/>
+            <circle cx="38" cy="56" r="4" fill="#fffbe8"/>
+            <rect x="37" y="47" width="2" height="18" fill="#fffbe8"/>
+          </g>
+          <g class="spinner">
+            <circle cx="140" cy="56" r="11" fill="#0b0f1a" stroke="#fffbe8" stroke-width="1"/>
+            <circle cx="140" cy="56" r="4" fill="#fffbe8"/>
+            <rect x="139" y="47" width="2" height="18" fill="#fffbe8"/>
+          </g>
+        </svg>
+      </div>
+      <span class="burbuja" id="burbuja">Pi, pi!</span>
+    </div>
+
+    <p class="caption" id="caption" aria-hidden="true"></p>
+    <p class="sr-only" id="caption-sr" aria-live="polite"></p>
+    <button type="button" class="btn btn-skip" id="skip">Saltar</button>
+  </section>
+
+  <section id="pregunta" class="screen" hidden>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="float" aria-hidden="true"></div>
+    <div class="card" id="card">
+      <div class="pregunta">
+        <span class="kicker">Convocatoria oficial</span>
+        <h2 class="titulo">¿Confirmamos la <em>pizza</em> de las 6:30?</h2>
+        <p class="lead">Paso por ti a las 6:30 y vamos por pizza. Quería ir con alguien que me haga reír, y pensé en ti.</p>
+        <div class="when">Jueves · 6:30 p. m. · Pizza</div>
+
+        <p class="burla" id="burla" aria-live="polite"></p>
+
+        <div class="botones" id="botones">
+          <button id="si" class="btn btn-si" type="button">¡SÍ VAMOS!</button>
+          <button id="no" class="btn btn-no" type="button">No</button>
+        </div>
+      </div>
+
+      <div class="ok">
+        <div class="ok-pizza" id="ok-pizza"></div>
+        <h2 class="ok-titulo" id="ok-titulo" tabindex="-1">¡Gol! Quedó confirmado.</h2>
+        <p>Me alegra que sigamos con el plan.</p>
+        <p>Paso por ti a las 6:30. Escríbeme para dejarlo confirmado.</p>
+        <a class="btn btn-wa" id="wa" href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<button type="button" class="sonido" id="sonido" aria-pressed="true" hidden>Sonido: sí</button>
+<canvas id="confeti" aria-hidden="true"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>

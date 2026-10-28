@@ -1,0 +1,354 @@
+:root {
+  --noche: #00123a;
+  --azul: #002776;
+  --amarillo: #ffdf00;
+  --verde: #009c3b;
+  --verde-oscuro: #006b28;
+  --crema: #fffbe8;
+  --tinta: #12214a;
+  --pixel: "Press Start 2P", ui-monospace, "Courier New", monospace;
+  --texto: "Nunito", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--noche);
+  color: var(--crema);
+  font-family: var(--texto);
+  overflow-x: hidden;
+}
+[hidden] { display: none !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.screen {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  overflow: hidden;
+}
+.stars { position: absolute; inset: 0; pointer-events: none; }
+.stars i { position: absolute; background: var(--crema); opacity: .8; }
+
+/* referencias flotantes de fondo */
+.float { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.flota {
+  position: absolute;
+  display: block;
+  animation: flota 6s ease-in-out infinite alternate;
+}
+.flota svg { display: block; width: 100%; height: auto; }
+@keyframes flota {
+  from { transform: translateY(-9px) rotate(-6deg); }
+  to { transform: translateY(9px) rotate(6deg); }
+}
+.sello {
+  font-family: var(--pixel);
+  font-size: .65rem;
+  line-height: 1;
+  padding: .6em .8em;
+  border: 3px solid;
+  background: var(--crema);
+  white-space: nowrap;
+}
+.sello-a { color: var(--verde-oscuro); }
+.sello-b { color: var(--azul); }
+
+/* botones compartidos */
+.btn {
+  font-family: var(--pixel);
+  font-size: .85rem;
+  line-height: 1.2;
+  letter-spacing: .02em;
+  border: 4px solid var(--azul);
+  border-radius: 12px;
+  padding: 16px 22px;
+  min-height: 54px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  touch-action: manipulation;
+  box-shadow: 0 5px 0 var(--azul);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--azul); }
+.btn:focus-visible, .prompt:focus-visible, .sonido:focus-visible {
+  outline: 4px solid var(--amarillo);
+  outline-offset: 4px;
+}
+
+/* inicio */
+.splash { text-align: center; }
+.splash-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 28px;
+  justify-items: center;
+}
+.logo {
+  font-family: var(--pixel);
+  font-weight: 400;
+  font-size: clamp(2rem, 13vw, 3.6rem);
+  margin: 0;
+  color: var(--amarillo);
+  text-shadow: 4px 4px 0 var(--verde);
+}
+.prompt {
+  font-family: var(--pixel);
+  font-size: .72rem;
+  line-height: 2;
+  color: var(--crema);
+  background: none;
+  border: 0;
+  padding: 12px 8px;
+  max-width: 26em;
+  cursor: pointer;
+}
+.prompt span { animation: blink 1.2s steps(2, start) infinite; }
+@keyframes blink { 50% { opacity: .5; } }
+
+/* transición: el Corsa pasa por ella */
+.scene { align-content: center; gap: 18px; justify-items: center; }
+.stage {
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 16 / 10;
+  background: var(--azul);
+  border: 4px solid var(--crema);
+  overflow: hidden;
+}
+.luna {
+  position: absolute;
+  left: 8%; top: 10%;
+  width: 11%;
+  aspect-ratio: 1;
+  background: var(--amarillo);
+  border-radius: 50%;
+}
+.casa { position: absolute; right: 3%; bottom: 27%; width: 40%; }
+.ella { transition: opacity .35s; }
+.ella.gone { opacity: 0; }
+.brazo { opacity: 0; transform-box: view-box; transform-origin: 121px 84px; }
+.ella.saluda .brazo { opacity: 1; animation: wave .4s ease-in-out infinite alternate; }
+@keyframes wave { from { transform: rotate(-14deg); } to { transform: rotate(22deg); } }
+
+.acera {
+  position: absolute;
+  left: 0; right: 0; bottom: 22%;
+  height: 5%;
+  background: #3b4a78;
+}
+.road {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 22%;
+  background: #10172b;
+}
+.road::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 52%;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, var(--amarillo) 0 24px, transparent 24px 48px);
+  animation: road .45s linear infinite;
+}
+@keyframes road { to { background-position: -48px 0; } }
+.stage.halt .road::after { animation-play-state: paused; }
+
+.corsa {
+  position: absolute;
+  bottom: 3%;
+  left: -45%;
+  width: clamp(130px, 34%, 190px);
+}
+.corsa svg { display: block; width: 100%; }
+.corsa.llega { animation: llega 2.2s cubic-bezier(.2, .7, .3, 1) forwards; }
+.corsa.sale { animation: sale 1.5s cubic-bezier(.6, 0, .9, .5) forwards; }
+@keyframes llega { from { left: -45%; } to { left: 54%; } }
+@keyframes sale { from { left: 54%; } to { left: 125%; } }
+.haz { opacity: 0; transition: opacity .2s; }
+.corsa.luces .haz { opacity: .28; }
+.spinner { transform-box: fill-box; transform-origin: center; animation: spin .35s linear infinite; }
+.stage.halt .spinner { animation: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.burbuja {
+  position: absolute;
+  left: 50%; bottom: 31%;
+  background: var(--crema);
+  color: var(--tinta);
+  font-family: var(--pixel);
+  font-size: clamp(.5rem, 2.2vw, .7rem);
+  padding: .7em .9em;
+  border: 3px solid var(--noche);
+  opacity: 0;
+  scale: .6;
+  transition: opacity .2s, scale .25s cubic-bezier(.3, 1.6, .5, 1);
+}
+.burbuja.on { opacity: 1; scale: 1; }
+
+.caption {
+  font-family: var(--pixel);
+  font-size: clamp(.68rem, 2.8vw, .9rem);
+  line-height: 2;
+  text-align: center;
+  min-height: 6em;
+  max-width: 36em;
+  margin: 0;
+}
+.btn-skip {
+  background: transparent;
+  color: var(--crema);
+  border-color: var(--crema);
+  box-shadow: none;
+  font-size: .7rem;
+  padding: 12px 18px;
+  min-height: 44px;
+}
+
+/* pregunta */
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  background: var(--crema);
+  color: var(--tinta);
+  border: 4px solid var(--azul);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--amarillo);
+  padding: 28px 22px 26px;
+  text-align: center;
+}
+.kicker {
+  display: inline-block;
+  background: var(--amarillo);
+  color: var(--azul);
+  border: 3px solid var(--azul);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-weight: 800;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+.titulo {
+  font-family: var(--pixel);
+  font-weight: 400;
+  font-size: clamp(.95rem, 4.4vw, 1.3rem);
+  line-height: 1.7;
+  margin: 20px 0 14px;
+  color: var(--azul);
+}
+.titulo em {
+  font-style: normal;
+  color: var(--verde-oscuro);
+  background: linear-gradient(transparent 62%, var(--amarillo) 62%);
+}
+.lead {
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 0 auto 6px;
+  max-width: 36ch;
+}
+.when {
+  display: inline-block;
+  font-weight: 800;
+  background: #fff;
+  border: 3px dashed var(--azul);
+  border-radius: 14px;
+  padding: 8px 14px;
+  margin: 12px 0 4px;
+}
+.burla {
+  min-height: 1.5em;
+  margin: 14px 0 0;
+  font-weight: 800;
+  color: var(--verde-oscuro);
+}
+.botones {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  min-height: 74px;
+}
+.btn-si { background: var(--amarillo); color: var(--azul); transform-origin: center; }
+.btn-no { background: #fff; color: var(--azul); }
+.btn-no.huida {
+  position: fixed;
+  z-index: 1000;
+  transition: left .18s cubic-bezier(.3, 1.6, .5, 1), top .18s cubic-bezier(.3, 1.6, .5, 1);
+}
+.rastro {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--amarillo);
+  pointer-events: none;
+  z-index: 900;
+  animation: rastro .6s ease-out forwards;
+}
+@keyframes rastro { to { opacity: 0; scale: .2; } }
+
+/* confirmación */
+.ok { display: none; }
+.card.confirmado .pregunta { display: none; }
+.card.confirmado .ok { display: block; animation: pop .5s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes pop { from { scale: .2; } to { scale: 1; } }
+.ok-pizza { width: 72px; margin: 0 auto 14px; }
+.ok-pizza svg { width: 100%; display: block; }
+.ok-titulo {
+  font-family: var(--pixel);
+  font-weight: 400;
+  font-size: clamp(.95rem, 4.6vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--azul);
+  margin: 0 0 14px;
+}
+.ok-titulo:focus { outline: none; }
+.ok p { font-weight: 600; font-size: 1.08rem; line-height: 1.45; margin: 0 auto 14px; max-width: 34ch; }
+.btn-wa { background: var(--verde-oscuro); color: #fff; margin-top: 6px; font-size: .72rem; }
+
+.sonido {
+  position: fixed;
+  top: 12px; right: 12px;
+  z-index: 1100;
+  font-family: var(--texto);
+  font-weight: 800;
+  font-size: .8rem;
+  min-height: 44px;
+  padding: 8px 14px;
+  background: var(--crema);
+  color: var(--tinta);
+  border: 3px solid var(--azul);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+canvas#confeti {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1200;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flota, .prompt span, .spinner, .road::after { animation: none; }
+  .corsa.llega { animation: none; left: 54%; }
+  .corsa.sale { animation: none; left: 125%; }
+  .ella.saluda .brazo { animation: none; }
+  .btn-no.huida { transition: none; }
+}
