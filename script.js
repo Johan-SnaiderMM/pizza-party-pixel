@@ -1,4 +1,4 @@
-// Tu número en formato internacional sin "+" ni espacios, ej. "573001234567". Vacío: WhatsApp deja elegir a quién enviarlo.
+// Tu número en formato internacional sin "+" ni espacios, ej. "57XXXXXXXXXX". Vacío: WhatsApp deja elegir a quién enviarlo.
 const WHATSAPP = "";
 const MENSAJE = "Sí vamos. Aún tengo espacio para ti.";
 

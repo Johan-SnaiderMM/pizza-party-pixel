@@ -2,6 +2,8 @@
 
 Invitación interactiva en pixel art, hecha por diversión: una escena animada (un carro verde pasa a recoger a su invitada), una pregunta con un botón «No» que se escapa y una pantalla de confirmación con confeti.
 
+🌐 **Pruébalo en vivo:** https://pizza-party-pixel.vercel.app
+
 Sin dependencias: HTML, CSS y JavaScript puros.
 
 ## Cómo verlo
