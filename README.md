@@ -10,6 +10,6 @@ Abre `index.html` en el navegador (o sírvelo con cualquier servidor estático).
 
 ## Personalizar
 
-- `WHATSAPP` en `script.js`: número en formato internacional, sin `+` ni espacios. Trae uno de ejemplo.
+- `WHATSAPP` en `script.js`: número en formato internacional, sin `+` ni espacios. Viene vacío: el botón final abre WhatsApp para que cada persona elija a quién enviar el mensaje.
 - `MENSAJE` en `script.js`: texto que llega prellenado en WhatsApp.
 - Los textos de la pregunta están en `index.html`.
